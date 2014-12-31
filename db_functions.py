@@ -29,6 +29,11 @@ class TodoList(BaseModel):
 # Functions
 
 
+def setup_db():
+    db.connect()
+    db.create_tables([TodoList])
+
+
 def create_todo_list(title, description):
     """A function to create a new TodoList
 

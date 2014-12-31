@@ -3,7 +3,7 @@
 
     <table class="table-responsive table">
         <thead>
-            <th>Your TODO lists:</th>
+            <th colspan="4">Your TODO lists:</th>
         </thead>
 
         {% for  todo_list in todo_lists%}
@@ -13,25 +13,25 @@
                 </td>
 
                 <td>
-                    <button class="btn btn-info" onclick="location.href='{{ url_for("a_list", id=todo_list.id) }}'">
+                    <button class="btn btn-info btn-lg" onclick="location.href='{{ url_for("a_list", id=todo_list.id) }}'">
                         View
                     </button>
                 </td>
 
                 <td>
-                    <button class="btn btn-warning" onclick="location.href='{{ url_for("edit", id=todo_list.id) }}'">
+                    <button class="btn btn-warning btn-lg" onclick="location.href='{{ url_for("edit", id=todo_list.id) }}'">
                         Edit
                     </button>
                 </td>
 
                 <td>
-                    <button class="btn btn-danger" onclick="location.href='{{ url_for("delete", id=todo_list.id) }}'">
+                    <button class="btn btn-danger btn-lg" onclick="location.href='{{ url_for("delete", id=todo_list.id) }}'">
                         Delete
                     </button>
                 </td>
             </tr>
         {% endfor %}
     </table>
-    <button class="btn btn-success" onclick="location.href='{{ url_for("add") }}'">Add A TODO List</button>
+    <button class="btn btn-success btn-lg" onclick="location.href='{{ url_for("add") }}'">Add A TODO List</button>
 
 {% endblock %}
