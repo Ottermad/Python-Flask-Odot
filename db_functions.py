@@ -2,11 +2,13 @@ from peewee import (
     MySQLDatabase,
     CharField,
     TextField,
-    Model
+    Model,
+    PostgresqlDatabase
 )
 
 # DB Setup
-db = MySQLDatabase("ODOT_DB", user="root", passwd="OttersR0ck")
+db = PostgresqlDatabase("de02vr0hses80r", user="vnyexbebciezhy", password="r9rfij9JthwM9NyR7WMZ0ocw6j")
+#db = MySQLDatabase("ODOT_DB", user="root", passwd="OttersR0ck")
 
 # Models
 
