@@ -3,21 +3,9 @@ from peewee import (
     CharField,
     TextField,
     Model,
-    PostgresqlDatabase
 )
-import os
-import urlparse
 
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse(os.environ["DATABASE_URL"])
-# DB Setup
-db = PostgresqlDatabase(
-    url.path[1:],
-    user=url.username,
-    password=url.password,
-    host=url.hostname,
-    port=url.port)
-#db = MySQLDatabase("ODOT_DB", user="root", passwd="OttersR0ck")
+db = MySQLDatabase("ODOT_DB", user="root", passwd="OttersR0ck")
 
 # Models
 
