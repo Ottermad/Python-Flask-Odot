@@ -1,9 +1,18 @@
 {% extends "layout.html" %}
 {% block body %}
-    <h1>
+    <h3>
+        Title:
+    </h3>
+    <p>
         {{ title }}
-    </h1>
+    </p>
+    <h3>
+        Description
+    </h3>
     <p>
         {{ description }}
     </p>
+    <button class="btn btn-info" onclick="location.href='{{ url_for("show") }}'">
+        Go Back
+    </button>
 {% endblock %}

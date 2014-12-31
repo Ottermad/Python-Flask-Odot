@@ -78,14 +78,16 @@ def edit(id):
     if request.method == "POST":
         my_todo_list = {
             "id": id,
-            "title": request.form["title"],
-            "description": request.form["description"]
+            "title": request.form["title"].rstrip(),
+            "description": request.form["description"].rstrip()
         }
         result = update_todo_list(my_todo_list)
         flash(result)
         return redirect(url_for("show"))
     else:
-        return render_template("edit.html")
+        my_todo_list = get_todo_list(id)
+        print my_todo_list
+        return render_template("edit.html", **my_todo_list)
 
 
 @app.route("/add", methods=["POST", "GET"])
@@ -100,8 +102,8 @@ def add():
     """
     if request.method == "POST":
         result = create_todo_list(
-            request.form["title"],
-            request.form["description"]
+            request.form["title"].rstrip(),
+            request.form["description"].rstrip()
         )
         flash(result)
         return redirect("/show")

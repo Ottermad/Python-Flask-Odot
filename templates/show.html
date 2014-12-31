@@ -1,20 +1,37 @@
 {% extends "layout.html" %}
 {% block body %}
-    <a href="{{ url_for("add") }}">Add</a>
-    <ul>
+
+    <table class="table-responsive table">
+        <thead>
+            <th>Your TODO lists:</th>
+        </thead>
+
         {% for  todo_list in todo_lists%}
-            <li>
-                {{ todo_list["title"] }}
-                <a href="{{ url_for("a_list", id=todo_list.id) }}">
-                    View
-                </a>
-                <a href="{{ url_for("edit", id=todo_list.id) }}">
-                    Edit
-                </a>
-                <a href="{{ url_for("delete", id=todo_list.id) }}">
-                    Delete
-                </a>
-            </li>
+            <tr>
+                <td>
+                    {{ todo_list["title"] }}
+                </td>
+
+                <td>
+                    <button class="btn btn-info" onclick="location.href='{{ url_for("a_list", id=todo_list.id) }}'">
+                        View
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-warning" onclick="location.href='{{ url_for("edit", id=todo_list.id) }}'">
+                        Edit
+                    </button>
+                </td>
+
+                <td>
+                    <button class="btn btn-danger" onclick="location.href='{{ url_for("delete", id=todo_list.id) }}'">
+                        Delete
+                    </button>
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
+    </table>
+    <button class="btn btn-success" onclick="location.href='{{ url_for("add") }}'">Add A TODO List</button>
+
 {% endblock %}

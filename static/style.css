@@ -1,0 +1,15 @@
+header {
+    text-align: center;
+}
+
+.form-control {
+    width: 40%;
+}
+
+#description {
+    height: 20em;
+}
+
+body {
+    font-size: 20px;
+}
