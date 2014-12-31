@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>ODOT</title>
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        {% for message in get_flashed_messages() %}
+            <script>
+                alert("{{ message }}");
+            </script>
+        {% endfor %}
+    </body>
+</html>

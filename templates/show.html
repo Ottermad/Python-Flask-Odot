@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block body %}
+    <a href="{{ url_for("add") }}">Add</a>
+    <ul>
+        {% for  todo_list in todo_lists%}
+            <li>
+                {{ todo_list["title"] }}
+                <a href="{{ url_for("a_list", id=todo_list.id) }}">
+                    View
+                </a>
+                <a href="{{ url_for("edit", id=todo_list.id) }}">
+                    Edit
+                </a>
+                <a href="{{ url_for("delete", id=todo_list.id) }}">
+                    Delete
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
