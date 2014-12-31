@@ -5,9 +5,18 @@ from peewee import (
     Model,
     PostgresqlDatabase
 )
+import os
+import urlparse
 
+urlparse.uses_netloc.append("postgres")
+url = urlparse.urlparse(os.environ["DATABASE_URL"])
 # DB Setup
-db = PostgresqlDatabase("de02vr0hses80r", user="vnyexbebciezhy", password="r9rfij9JthwM9NyR7WMZ0ocw6j")
+db = PostgresqlDatabase(
+    url.path[1:],
+    user=url.username,
+    password=url.password,
+    host=url.hostname,
+    port=url.port)
 #db = MySQLDatabase("ODOT_DB", user="root", passwd="OttersR0ck")
 
 # Models
