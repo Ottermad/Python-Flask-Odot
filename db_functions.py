@@ -95,13 +95,9 @@ def update_todo_list(todo_list):
     """
     try:
         my_todo_list = TodoList.get(TodoList.id == todo_list["id"])
-        print 1
         my_todo_list._title = todo_list["title"]
-        print 2
         my_todo_list._description = todo_list["description"]
-        print 3
         my_todo_list.save()
-        print 4
         return "Success"
 
     except:

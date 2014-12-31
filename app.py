@@ -86,7 +86,6 @@ def edit(id):
         return redirect(url_for("show"))
     else:
         my_todo_list = get_todo_list(id)
-        print my_todo_list
         return render_template("edit.html", **my_todo_list)
 
 
